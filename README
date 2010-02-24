@@ -1,5 +1,11 @@
+What is it?
+===========
 Applescript Utility to delete files permanently without going thru Trash.
 
-It prompts an interactive dialog for user to confirm the actiocxn. It's been tested on Mac OS 10.5 Leopard
+It prompts an interactive dialog for user to confirm the actiocxn. It's been tested on Mac OS 10.5 Leopard.
 
 Supported FileVault, USB Volume
+
+How to bind this script to a shortcut
+=====================================
+I've only successfully bind using QuickSilver Triggers

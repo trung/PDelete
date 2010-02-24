@@ -5,7 +5,7 @@ Interactive dialog is displayed for user to confirm the action.
 Works on Leopard
 *)
 
-prop parent : app "Finder"
+property parent : application "Finder"
 
 set OK_MSG to "Sure, I am"
 set CANCEL_MSG to "Sorry, I ain't"
@@ -13,15 +13,16 @@ set ABORT_MSG to "Abort, safety first"
 set IGNORE_MSG to "Pass, try next one"
 
 try
-	tell application "Finder" 
+	tell application "Finder"
 		activate
 		set selectionList to get selection as list
 		set selectionCount to count items in selectionList
-
-		set asking_dialog to display dialog "There are " & selectionCount & " selected folders/files. \nAre you sure to delete permanently?" Â¬
-			with title "Warning" Â¬
-			with icon stop Â¬
-			buttons {CANCEL_MSG, OK_MSG} Â¬
+		
+		set asking_dialog to display dialog "There are " & selectionCount & Â
+			" selected folders/files. 
+Are you sure to delete permanently?" with title Â
+			"Warning" with icon stop Â
+			buttons {CANCEL_MSG, OK_MSG} Â
 			default button CANCEL_MSG
 		set button_pressed to button returned of result
 		
@@ -34,9 +35,9 @@ try
 						do shell script "rm -rf \"" & selectedPath & "\""
 					on error error_msg
 						beep
-						display dialog "Can't delete " & selectedPath & " due to: " & error_msg Â¬
-							with icon 1 Â¬
-							buttons {ABORT_MSG, IGNORE_MSG} Â¬
+						display dialog "Can't delete " & selectedPath & " due to: " & error_msg Â
+							with icon 1 Â
+							buttons {ABORT_MSG, IGNORE_MSG} Â
 							default button IGNORE_MSG
 						set button_pressed to button returned of result
 						if button_pressed is ABORT_MSG then
@@ -48,7 +49,7 @@ try
 				end repeat
 				return 0
 			else
-				return  0
+				return 0
 			end if
 		else
 			return 0
@@ -56,8 +57,8 @@ try
 	end tell
 on error error_message
 	beep
-	display dialog error_message Â¬
-		with title "Error" Â¬
-		buttons {"OK"} default button 1
+	display dialog error_message Â
+		with title Â
+		"Error" buttons {"OK"} default button 1
 	set the clipboard to error_message
 end try
