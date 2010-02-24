@@ -1,0 +1,5 @@
+Applescript Utility to delete files permanently without going thru Trash.
+
+Tested on Mac OS 10.5 Leopard
+
+Supported FileVault, USB Volume
